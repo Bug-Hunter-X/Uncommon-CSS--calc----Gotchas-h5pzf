@@ -1,0 +1,34 @@
+/* bugSolution.css */
+
+/* Addressing the issue of unexpected results from calc() with percentages */
+.container {
+  width: 100%; /* Ensure container has a definite width, even if dynamic */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+.element {
+  width: calc(100% - 20px); /* Correct usage, considering the container width */
+  background-color: lightblue;
+  padding: 10px;
+}
+
+/* Correcting unit mixing errors */
+.element2 {
+  width: calc(100% - 20px); /* Parentheses are essential for proper calculation */
+  height: calc(50% + 10px); /* Correct usage */
+  background-color: lightgreen;
+}
+
+/* Addressing issues with operator precedence */
+.element3 {
+  width: calc((100% - 20px) / 2); /* Parentheses define the order of operations */
+  background-color: lightcoral;
+}
+
+/* Consider browser compatibility for more complex calc() scenarios */
+.element4 {
+  /* Ensure support for older browsers if necessary */
+  width: 50%; /* Use a fallback for unsupported browsers */
+  width: calc(50% - 10px); /* Modern browser functionality */ 
+  background-color: lightgoldenrodyellow;
+} 
